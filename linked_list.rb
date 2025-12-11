@@ -68,5 +68,57 @@ class LinkedList
             counter += 1
         end
         return nil
-    end        
+    end
+    
+    def pop
+        if @head.nil?
+            return nil
+        end
+        if @head.next_node == nil
+            removed_node = @head
+            @head = nil
+            return removed_node
+        end
+
+        current = @head
+        while current.next_node.next_node != nil
+            current = current.next_node
+        end
+
+        removed_node = current.next_node
+        current.next_node = nil
+        return removed_node
+    end
+
+    def contains?(value)
+        current = @head
+        while current != nil
+            if current.value == value
+                return true
+            else
+                current = current.next_node
+            end
+        end
+        return false
+    end
+
+    def find(value)
+        current = @head
+        counter = 0
+
+        while current != nil
+            if current.value == value
+                return counter
+            else 
+                current = current.next_node
+                counter += 1
+            end
+        end
+        return nil
+    end
+
+
+
+
+
 end
