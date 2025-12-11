@@ -41,5 +41,32 @@ class LinkedList
         return count
     end
 
-        
+    def head
+        @head
+    end
+
+    def tail
+        current = @head
+        if @head.nil?
+            return nil
+        end
+        while current.next_node != nil 
+            current = current.next_node
+        end
+        return current
+    end
+
+    def at(index)
+        current = @head
+        counter = 0
+
+        while current != nil
+            if counter == index
+                return current
+            end
+            current = current.next_node
+            counter += 1
+        end
+        return nil
+    end        
 end
