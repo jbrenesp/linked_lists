@@ -117,8 +117,14 @@ class LinkedList
         return nil
     end
 
-
-
-
-
+    def to_s
+        current = @head
+        str = ""
+        while current != nil
+            str += "( #{current.value} ) ->"
+            current = current.next_node
+        end
+        str += "nil"
+        return str
+    end
 end
